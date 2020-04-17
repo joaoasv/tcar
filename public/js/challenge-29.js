@@ -45,16 +45,53 @@
             },
             add: event => {
                 event.preventDefault();
-                var html = `
-                <li>
-                    <div>${$photo.value}</div>
-                    <div>${$model.value}</div>
-                    <div>${$year.value}</div>
-                    <div>${$code.value}</div>
-                    <div>${$color.value}</div>
-                </li>`;
-                $results.innerHTML += html;
-                return clear();
+                $results.appendChild(app.create());
+                clear();
+            },
+            create: () => {
+                var $fragment = document.createDocumentFragment();
+                var $row = document.createElement('li');
+
+                var $rowPhoto = document.createElement('div');
+                var $photoCar = document.createElement('img');
+                var $rowModel = document.createElement('div');
+                var $rowYear = document.createElement('div');
+                var $rowCode = document.createElement('div');
+                var $rowColor = document.createElement('div');
+                var $rowDelete = document.createElement('div');
+                var $delete = document.createElement('a');
+
+                $rowPhoto.appendChild($photoCar);
+                $photoCar.setAttribute('src', `${$photo.value}`);
+                $photoCar.setAttribute('width', '150px');
+                $photoCar.setAttribute('height', 'auto');
+
+                $rowModel.textContent = $model.value;
+                $rowYear.textContent = $year.value;
+                $rowCode.textContent = $code.value;
+                $rowColor.textContent = $color.value;
+                $delete.textContent = `Deletar carro`;
+
+                $row.setAttribute('data-js', 'item');
+                $delete.setAttribute('data-js', 'delete');
+                $delete.setAttribute('href', '#');
+
+                $delete.onclick = function(e) {
+                    e.preventDefault();
+                    $row.remove();
+                }
+                
+                $row.appendChild($rowPhoto);
+                $row.appendChild($rowModel);
+                $row.appendChild($rowYear);
+                $row.appendChild($rowCode);
+                $row.appendChild($rowColor);
+                $rowDelete.appendChild($delete);
+                $row.appendChild($rowDelete);
+                
+                $fragment.appendChild($row);
+
+                return $fragment;
             }
         }
     })();

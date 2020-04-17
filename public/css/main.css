@@ -52,6 +52,11 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: mediumspringgreen;
 }
+form {
+    background: rgba(0, 0, 0, .02);
+    padding: 50px;
+    border-radius: 3px;
+}
 
 form > div {
     display: grid;
@@ -86,12 +91,36 @@ label > span {
 
 .cars__table div {
     padding: 15px 25px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }
 
-.cars__table--header,
-.cars__table--list > li{
+.cars__table--header {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+}
+
+.cars__table--list > li{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.cars__table--list > li div:last-child {
+    display: grid;
+    place-self: center;
+}
+
+.cars__table--list > li div:last-child a {
+    color: white;
+    background-color: brown;
+    padding: 5px 15px;
+    border-radius: 3px;
+    transition: all .2s;
+}
+
+.cars__table--list > li div:last-child a:hover {
+    background-color: crimson;
 }
 
 .cars__table--header {
