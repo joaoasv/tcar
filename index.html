@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cars</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <main class="main">
+        <header>
+            <h1 data-js="name"></h1>
+            <span data-js="phone"></span>
+        </header>
+        <div class="main__grid">
+            <section class="form-add">
+                <form action="/" data-js="form-add" method="get">
+                    <h4>Cadastre um novo veículo</h4>
+                    <label for="photo"><span>Imagem</span><input type="text" data-js="photo"></label>
+                    <label for="model"><span>Marca / Modelo</span><input type="text" data-js="model"></label>
+                    <div>
+                        <label for="year"><span>Ano</span><input type="text" data-js="year"></label>
+                        <label for="code"><span>Placa</span><input type="text" data-js="code"></label>
+                        <label for="color"><span>Cor</span><input type="text" data-js="color"></label>
+                    </div>
+                    <input type="submit" value="Cadastrar veículo">
+                </form>
+            </section>
+
+            <section class="cars">
+                <h4>Veículos cadastrados em nosso sistema</h4>
+                <section class="cars__table">
+                    <section class="cars__table--header">
+                        <div>Foto</div>
+                        <div>Marca / Modelo</div>
+                        <div>Ano</div>
+                        <div>Placa</div>
+                        <div>Cor</div>
+                    </section>
+                    <ul class="cars__table--list" data-js="results"></ul>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/dom.js"></script>
+    <script src="js/challenge-29.js"></script>
+</body>
+</html>
